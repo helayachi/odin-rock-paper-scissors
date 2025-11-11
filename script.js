@@ -22,7 +22,7 @@ function getPlayerChoice() {
             return "scissors";
         }
     } else {
-        return alert("OPs! That's invalid input, Try again.");
+        return console("OPs! That's invalid input, Try again.");
     }
 }
 
@@ -30,14 +30,41 @@ function isValid(input) {
     return +input !== NaN && +input !== 0 && +input >= 1 && +input <= 3;
 }
 
+function checkRoundWinner(playerChoice, computerChoice) {
+   
+    if (playerChoice === "rock" && computerChoice === "scissors"
+        || playerChoice === "scissors" && computerChoice === "paper" 
+        || playerChoice === "paper" && computerChoice === "rock"){   
+    return 'player';
+    } else if (playerChoice === computerChoice) {
+        return 'tie';
+    } else {
+        return 'computer';
+    }
 
+}
 
 function playerRound() {
 
     const computerChoice = getComputerChoice();
     const playerChoice = getPlayerChoice();
 
-    console.log(playerChoice);
+    const roundWinner = checkRoundWinner(playerChoice, computerChoice);
+
+    if (roundWinner === 'player') {
+        console.log(`Computer: ${computerChoice} / Player: ${playerChoice}`);
+        console.log('*** You win ***')
+        ++playerScore;
+        ++roundCount;
+    } else if (roundWinner === 'computer') {
+        console.log(`Computer: ${computerChoice} Vs. Player: ${playerChoice}`);
+        console.log('--- You lose ---');
+        ++computerScore;
+        ++roundCount
+    } else {
+        console.log('~~~ Tie! Try again ~~~');
+        ++roundCount;
+    }
 }
 
 
