@@ -10,14 +10,19 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice() {
-    const choice = prompt("1) Rock 2) Paper 3) Scissors").trim();
+    const choice = +prompt("1) Rock 2) Paper 3) Scissors").trim();
+    return isValid(choice) ? choice : alert("Opps! That's invalid.");
 }
 
-const isValid = (input) => input !== NaN && input !== 0 && input >= 1 && input <= 3;
+function isValid(input) {
+    return +input !== NaN && +input !== 0 && +input >= 1 && +input <= 3;
+}
+
+function playerRound() {
+    const computerChoice = getComputerChoice();
+    const playerChoice = getPlayerChoice();
+    console.log(playerChoice);
+}
 
 
-
-
-// const computerChoice = getComputerChoice();
-// const playerChoice = getPlayerChoice();
-
+playerRound();
