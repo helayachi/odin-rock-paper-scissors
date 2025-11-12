@@ -81,5 +81,3 @@ showGameWinner(gameWinner);
 
 }
 
-
-playGame(3);
