@@ -6,11 +6,12 @@ let getComputerChoice = () => options[Math.floor(Math.random() * 3)];
 
 // Check if the human input is valid & in range
 let isValid = (input) => input !== "" && input !== " ";
-let inRange = (input) => input === "rock" || input === "paper" || input === "scissors";
+let inRange = (input) => options.includes(input);
 
 // logic to get the human choice
 function getPlayerChoice()  {
     const input = prompt('Type: Rock Paper Scissors').toLowerCase();
+    if (input === null) return;
     return isValid(input) && inRange(input) ? input : getPlayerChoice();
 } 
 
