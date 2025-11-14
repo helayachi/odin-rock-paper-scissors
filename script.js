@@ -46,6 +46,7 @@ function checkGameWinner() {
 
 // Update score after each round
 function updateScore(winner) {
+    
     if (winner === 'player') {
         playerScore++;
     } else if (winner === 'computer') {
@@ -57,7 +58,6 @@ function updateScore(winner) {
 
 // Display Results
 function showRoundWinner(winner) {
-    winner === 'player' || winner === 'computer';
 
     if (winner === 'player') {
         alert(`Round winner: ${winner}`);
@@ -67,7 +67,6 @@ function showRoundWinner(winner) {
 }
 
 function showGameWinner(winner) {
-    winner === 'player' || winner === 'computer';
     
     if (winner === 'player') {
         alert(`Game Over! ${winner} won this game \n
